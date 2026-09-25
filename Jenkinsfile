@@ -2,22 +2,23 @@ pipeline {
     agent any
     
     stages {
+	
+	stage('Checkout') {
+		steps {
+			echo 'Getting application code...'
+			}
+		}
         stage('Build') {
             steps {
-                echo 'Building my application...'
+               	sh 'javac helloapp.java'
             }
         }
         
-        stage('Test') {
+        stage('Run') {
             steps {
-                echo 'Running Tests...'
-            }
+                sh 'java helloapp'
+         	}
         }
         
-        stage('Deploy') {
-            steps {
-                echo 'Deploying Application...'
-            }
-        }
     }
 }
