@@ -10,13 +10,13 @@ pipeline {
 		}
         stage('Build') {
             steps {
-               	sh 'javac helloapp.java'
+               	sh 'javac helloapp.java helloapptest.java'
             }
         }
         
         stage('Run') {
             steps {
-                sh 'java helloapp'
+                sh 'java helloapptest'
          	}
         }
         
